@@ -1,12 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters";
+import pitchPerfected from "../../assets/images/pitchperfected.png";
+import advsr from "../../assets/images/advsr.png";
 import "./index.scss";
-import portfolioData from '../../data/portfolio.json';
 
 const Portfolio = () => { 
     const [letterClass, setLetterClass] = useState('text-animate');
-    console.log(portfolioData);
+    const hardcodedPortfolioData = [
+        {
+            cover: pitchPerfected,
+            title: "PitchPerfected",
+            description: "React, Javascript",
+            url: "https://www.pitchperfected.net/"
+        },
+        {
+            cover: advsr,
+            title: "ADVSR",
+            description: "Java, SpringBoot, React, JavaScript, MongoDB",
+            url: "https://github.com/BoilerADVSR"
+        }
+        // Add more hardcoded portfolio items if needed
+    ];
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setLetterClass('text-animate-hover');
@@ -14,7 +30,7 @@ const Portfolio = () => {
         return () => {
             clearTimeout(timer);
         }
-    }); 
+    }, []); 
 
     const renderPortfolio = (portfolio) => {
         return (
@@ -28,7 +44,7 @@ const Portfolio = () => {
                                 className="portfolio-image"
                                 alt="portfolio" />
                                 <div className="content">
-                                <p className="title">{port.name}</p>
+                                <p className="title">{port.title}</p>
                                     <h4 className="description">{port.description}</h4>
                                     <button
                                         className="btn"
@@ -43,7 +59,6 @@ const Portfolio = () => {
         );
     }
 
-
     return (
         <>
             <div className="container portfolio-page">
@@ -54,7 +69,7 @@ const Portfolio = () => {
                         idx={15}
                     />
                 </h1>
-                <div>{renderPortfolio(portfolioData.portfolio)}</div>
+                <div>{renderPortfolio(hardcodedPortfolioData)}</div>
             </div>
             <Loader type="pacman" />
         </>
