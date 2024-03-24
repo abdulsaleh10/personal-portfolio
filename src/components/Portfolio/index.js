@@ -3,6 +3,8 @@ import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters";
 import pitchPerfected from "../../assets/images/pitchperfected.png";
 import advsr from "../../assets/images/advsr.png";
+import lms from "../../assets/images/lms.png";
+import shell from "../../assets/images/shell.png";
 import "./index.scss";
 
 const Portfolio = () => { 
@@ -19,6 +21,18 @@ const Portfolio = () => {
             title: "ADVSR",
             description: "Java, SpringBoot, React, JavaScript, MongoDB",
             url: "https://github.com/BoilerADVSR"
+        },
+        {
+            cover: shell,
+            title: "Shell Project",
+            description: "C, C++, Lex & Yacc",
+            url: "https://gitfront.io/r/private10/Jq6QTHfsaTBK/shell-project/" 
+        },
+        {
+            cover: lms,
+            title: "Learning Management System",
+            description: "Java",
+            url: "https://github.com/abdulsaleh10/lms" 
         }
         // Add more hardcoded portfolio items if needed
     ];
